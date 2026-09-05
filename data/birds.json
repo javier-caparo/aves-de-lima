@@ -1,0 +1,50 @@
+[
+  {
+    "id": "turtupilin",
+    "common_name": "Turtupilín",
+    "scientific_name": "Pyrocephalus rubinus",
+    "image_url": "/images/turtupilin.jpg",
+    "habitat": "Urban",
+    "description": "A striking small bird frequently seen in Lima's parks. The male is bright red with a dark mask and wings, while the female is grayish-brown with a streaked belly."
+  },
+  {
+    "id": "cuculi",
+    "common_name": "Cuculí",
+    "scientific_name": "Zenaida meloda",
+    "image_url": "/images/cuculi.jpg",
+    "habitat": "Urban",
+    "description": "One of the most common doves in Lima, easily recognizable by its distinctive blue eye-ring, white wing patches, and its melodic 'cu-cu-li' call."
+  },
+  {
+    "id": "colibri-de-oasis",
+    "common_name": "Colibrí de Oasis",
+    "scientific_name": "Rhodopis vesper",
+    "image_url": "/images/colibri-de-oasis.jpg",
+    "habitat": "Coastal",
+    "description": "A medium-sized hummingbird found in arid coastal regions. Males have a long, deeply forked tail and a shimmering purple throat patch."
+  },
+  {
+    "id": "huerequeque",
+    "common_name": "Huerequeque",
+    "scientific_name": "Burhinus superciliaris",
+    "image_url": "/images/huerequeque.jpg",
+    "habitat": "Coastal",
+    "description": "A primarily nocturnal, terrestrial bird with large yellow eyes and long greenish legs. It is often found in open fields, agricultural areas, and arid coastal strips."
+  },
+  {
+    "id": "boton-de-oro",
+    "common_name": "Botón de Oro",
+    "scientific_name": "Sicalis flaveola",
+    "image_url": "/images/boton-de-oro.jpg",
+    "habitat": "Urban",
+    "description": "A bright yellow finch commonly found foraging on the ground in lawns and parks. Males are vibrant yellow with an orange crown, while females are duller and streaked."
+  },
+  {
+    "id": "gorrion-americano",
+    "common_name": "Gorrión Americano",
+    "scientific_name": "Zonotrichia capensis",
+    "image_url": "/images/gorrion-americano.jpg",
+    "habitat": "Andean",
+    "description": "Also known as the Rufous-collared Sparrow, this adaptable bird is found from coastal cities up to the Andes. It has a distinctive rufous collar and a striped head."
+  }
+]
