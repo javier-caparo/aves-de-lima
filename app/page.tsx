@@ -35,11 +35,11 @@ export default function MainGallery() {
         />
 
         {error && (
-          <div className="mt-8 p-4 bg-danger/10 text-danger rounded-lg border border-danger/20 flex items-center justify-between gap-4">
+          <div className="mt-8 p-4 bg-danger-text/10 text-danger-text rounded-lg border border-danger-text/20 flex items-center justify-between gap-4">
             <p>{error}</p>
             <button
               onClick={retry}
-              className="shrink-0 px-4 py-2 bg-danger text-white rounded-md hover:bg-danger-light transition-colors"
+              className="shrink-0 px-4 py-2 bg-danger text-white rounded-md hover:bg-danger-hover transition-colors"
             >
               Retry
             </button>
@@ -49,7 +49,7 @@ export default function MainGallery() {
         {isLoading ? (
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {[...Array(8)].map((_, i) => (
-              <div key={i} className="h-64 bg-gray-200 rounded-lg animate-pulse" />
+              <div key={i} className="h-64 bg-gray-200 dark:bg-gray-800 rounded-lg animate-pulse" />
             ))}
           </div>
         ) : birds.length === 0 ? (

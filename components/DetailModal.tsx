@@ -23,18 +23,18 @@ export default function DetailModal({ bird, onClose }: DetailModalProps) {
       />
       
       {/* Modal Content */}
-      <div className="relative bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto flex flex-col">
+      <div className="relative bg-surface rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto flex flex-col">
         <button 
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-4 right-4 z-10 p-2 bg-white/80 hover:bg-white rounded-full text-gray-800 transition-colors"
+          className="absolute top-4 right-4 z-10 p-2 bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-700 rounded-full text-gray-800 dark:text-gray-200 transition-colors"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
 
-        <div className="relative w-full aspect-video sm:aspect-[21/9] bg-gray-100">
+        <div className="relative w-full aspect-video sm:aspect-[21/9] bg-gray-100 dark:bg-gray-800">
           <Image 
             src={bird.image_url} 
             alt={bird.common_name}

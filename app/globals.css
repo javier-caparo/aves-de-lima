@@ -1,28 +1,63 @@
 @import "tailwindcss";
 
 /*
- * Design tokens — constitution.md Article IV.
- * Semantic names: surface/canvas (backgrounds), foreground/muted (text),
- * brand/brand-strong (accent), danger/danger-light (errors),
- * success, warning. Reference viewports: Desktop 1440px, Mobile 390px.
+ * Design tokens — constitution.md Article IV (light set is authoritative;
+ * dark set added by change add-dark-mode, constitution v1.2.0).
+ * Theme switching happens via a `data-theme="dark"` attribute on <html>:
+ * the @theme inline indirection makes semantic utilities resolve the
+ * `--*` variables at runtime, so swapping the attribute swaps every
+ * token surface at once.
  */
-@theme {
-  --color-surface: #FFFFFF;
-  --color-canvas: #F9FAFB;
-  --color-foreground: #111827;
-  --color-muted: #6B7280;
-  --color-brand: #059669;
-  --color-brand-strong: #047857;
-  --color-danger: #EF4444;
-  --color-danger-light: #FCA5A5;
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
+@custom-variant dark (&:is([data-theme="dark"] *, [data-theme="dark"]));
+
+:root {
+  --surface: #FFFFFF;
+  --canvas: #F9FAFB;
+  --foreground: #111827;
+  --muted: #6B7280;
+  --brand: #059669;
+  --brand-strong: #047857;
+  --danger: #DC2626;
+  --danger-text: #B91C1C;
+  --danger-hover: #B91C1C;
+  --success: #10B981;
+  --warning: #F59E0B;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --surface: #111827;
+  --canvas: #0B0F19;
+  --foreground: #F9FAFB;
+  --muted: #9CA3AF;
+  --brand: #059669;
+  --brand-strong: #0AA173;
+  --danger: #E1313D;
+  --danger-text: #F87171;
+  --danger-hover: #C41F1F;
+  --success: #34D399;
+  --warning: #FBBF24;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-canvas: var(--canvas);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-danger: var(--danger);
+  --color-danger-text: var(--danger-text);
+  --color-danger-hover: var(--danger-hover);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
-  background: var(--color-surface);
-  color: var(--color-foreground);
+  background: var(--surface);
+  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
