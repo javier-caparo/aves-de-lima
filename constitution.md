@@ -1,7 +1,7 @@
 # Project Constitution — Aves de Lima
 
-**Version:** 1.0.0
-**Ratified:** 2026-09-04
+**Version:** 1.1.0
+**Ratified:** 2026-09-04 (v1.1.0 amended 2026-09-04 from v1.0.0)
 **Derived from:** `final proposal.md` (Architecture & System Definition) and codebase exploration (2026-09-04)
 
 ---
@@ -74,17 +74,20 @@ aves-de-lima/
 
 ## Article IV — Design System
 
-The proposal §4 palette is binding. Tokens must be registered in the Tailwind theme and used by name:
+The proposal §4 palette is binding. Tokens are registered in the Tailwind v4 theme (`app/globals.css`, `@theme` block) and used by name.
 
-| Token | Value | Usage |
+> **v1.1.0 amendment (2026-09-04):** Token names renamed from the v1.0.0 usage-shaped names to unambiguous semantic names, because a single `--color-primary` cannot serve both `bg-primary` (#FFFFFF) and `text-primary` (#111827). `--color-danger-light` (#FCA5A5) added as a new token for the retry-button hover.
+
+| Tailwind token | Value | Usage |
 |---|---|---|
-| `bg-primary` | `#FFFFFF` | Main background |
-| `bg-canvas` | `#F9FAFB` | Secondary background / app canvas |
-| `text-primary` | `#111827` | Primary text |
-| `text-secondary` | `#6B7280` | Secondary text |
-| `accent` | `#059669` | Primary buttons, active states, links |
-| `accent-hover` | `#047857` | Hover on accent elements |
-| `error` | `#EF4444` | Error states |
+| `surface` | `#FFFFFF` | Main background (`bg-surface`) — was `bg-primary` |
+| `canvas` | `#F9FAFB` | Secondary background / app canvas (`bg-canvas`) |
+| `foreground` | `#111827` | Primary text (`text-foreground`) — was `text-primary` |
+| `muted` | `#6B7280` | Secondary text (`text-muted`) — was `text-secondary` |
+| `brand` | `#059669` | Primary buttons, active states, links (`bg-brand`/`text-brand`) — was `accent` |
+| `brand-strong` | `#047857` | Hover on accent elements — was `accent-hover` |
+| `danger` | `#EF4444` | Error states — was `error` |
+| `danger-light` | `#FCA5A5` | Hover on danger buttons (added v1.1.0) |
 | `success` | `#10B981` | Success states |
 | `warning` | `#F59E0B` | Warning states |
 
@@ -209,7 +212,7 @@ The proposal §4 palette is binding. Tokens must be registered in the Tailwind t
 | Proposal says | Reality | Status |
 |---|---|---|
 | ~~§9: `src/` directory wrapper~~ | ✅ Fixed 2026-09-04 — proposal §9 amended to root-level structure; root-level is canonical | **Closed** |
-| §9: `tailwind.config.ts` with validated tokens | Tailwind v4 uses PostCSS + CSS-based config; tokens not yet registered | **Gap** — Article IV/III.5 require token registration |
+| ~~§9: `tailwind.config.ts` with validated tokens~~ | ✅ Fixed 2026-09-04 — Tailwind v4 `@theme` tokens registered in `app/globals.css` per Article IV (v1.1.0 amendment); all hardcoded hex replaced across `app/` + `components/`; E2E asserts `--color-brand` emission on a production build | **Closed** |
 | ~~§9: `jest.config.js` + test scripts~~ | ✅ Fixed 2026-09-04 — `jest.config.mjs` + `jest.setup.js` created (ESM filename per lint config), `test` script added, `jest-environment-jsdom@30` + `@types/jest@30` installed, broken mock path in `useBirds.test.ts` corrected | **Closed** |
 | ~~§9: `playwright.config.ts`~~ | ✅ Fixed 2026-09-04 — config + `e2e/gallery.spec.ts` covering the §6.2 flow via **6 passing E2E tests** against a production build; uses system Chrome (`channel: 'chrome'`) as download-restricted environment deviation | **Closed** |
 | ~~§8: Error state with retry button~~ | ✅ Fixed 2026-09-04 — `Retry` action wired via `useBirds().refetch` (load-generation rerun, react-fetch-pattern compliant); unit test covers reload mechanics. Error branch itself remains unreachable by runtime (static data cannot fail mid-app); exercised via tests only | **Closed** |
