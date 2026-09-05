@@ -88,25 +88,26 @@ aves-de-lima/
 ├── public/
 │   ├── images/              # Local bird photography
 │   └── favicon.ico
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx       # Global layout & HTML structure
-│   │   ├── page.tsx         # Main Gallery & State handling
-│   │   └── globals.css      # Tailwind imports & variables
-│   ├── components/
-│   │   ├── GlobalHeader.tsx
-│   │   ├── SearchFilterBar.tsx
-│   │   ├── BirdCard.tsx
-│   │   └── DetailModal.tsx
-│   ├── hooks/
-│   │   └── useBirds.ts      # Custom hook for filtering/searching logic
-│   └── types/
-│       └── index.ts         # TypeScript interfaces (Bird entity)
+├── app/
+│   ├── layout.tsx           # Global layout & HTML structure
+│   ├── page.tsx             # Main Gallery & State handling
+│   └── globals.css          # Tailwind imports & variables
+├── components/
+│   ├── GlobalHeader.tsx
+│   ├── SearchFilterBar.tsx
+│   ├── BirdCard.tsx
+│   └── DetailModal.tsx
+├── hooks/
+│   └── useBirds.ts          # Custom hook for filtering/searching logic
+├── types/
+│   └── index.ts             # TypeScript interfaces (Bird entity)
 ├── package.json
 ├── tailwind.config.ts       # Validated design tokens
 ├── playwright.config.ts     # E2E test config
-└── jest.config.js           # Unit test config
+└── jest.config.mjs          # Unit test config
 ```
+
+> **Amendment (2026-09-04):** The original structure wrapped app code in a `src/` directory. The implementation uses root-level directories (`app/`, `components/`, `hooks/`, `types/`), which is valid for Next.js App Router and is now canonical per `constitution.md` Article III.6. The `src/` wrapper is not used. [Updated 2026-09-04] Test config uses `jest.config.mjs` (ESM) instead of `jest.config.js`, as required by the project's lint rules.
 
 ## Boundaries
 

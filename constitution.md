@@ -208,9 +208,9 @@ The proposal §4 palette is binding. Tokens must be registered in the Tailwind t
 
 | Proposal says | Reality | Status |
 |---|---|---|
-| §9: `src/` directory wrapper | Root-level `app/`, `components/`, `hooks/`, `types/` | Accepted — structure above is canonical |
+| ~~§9: `src/` directory wrapper~~ | ✅ Fixed 2026-09-04 — proposal §9 amended to root-level structure; root-level is canonical | **Closed** |
 | §9: `tailwind.config.ts` with validated tokens | Tailwind v4 uses PostCSS + CSS-based config; tokens not yet registered | **Gap** — Article IV/III.5 require token registration |
-| §9: `jest.config.js` + test scripts | Jest installed; no config, no `test` script in package.json | **Gap** — required by Article VI.5 |
+| ~~§9: `jest.config.js` + test scripts~~ | ✅ Fixed 2026-09-04 — `jest.config.mjs` + `jest.setup.js` created (ESM filename per lint config), `test` script added, `jest-environment-jsdom@30` + `@types/jest@30` installed, broken mock path in `useBirds.test.ts` corrected | **Closed** |
 | §9: `playwright.config.ts` | Playwright installed; no config | **Gap** — required by Article VI.2 |
 | §8: Error state with retry button | Error banner exists; no retry action | **Gap** — required by Article IV |
 | §7: `habitat: string` | Matches implementation; multi-habitat species conflict anticipated | Tracked — Article V.2 |
