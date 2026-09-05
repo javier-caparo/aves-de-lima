@@ -26,6 +26,7 @@ export default function DetailModal({ bird, onClose }: DetailModalProps) {
       <div className="relative bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto flex flex-col">
         <button 
           onClick={onClose}
+          aria-label="Close"
           className="absolute top-4 right-4 z-10 p-2 bg-white/80 hover:bg-white rounded-full text-gray-800 transition-colors"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
