@@ -2,7 +2,7 @@ import { renderHook, act, waitFor } from '@testing-library/react';
 import { useBirds } from './useBirds';
 
 // Arrange: Mock the JSON data
-jest.mock('../../data/birds.json', () => [
+jest.mock('../data/birds.json', () => [
   { id: '1', common_name: 'Turtupilín', scientific_name: 'Pyrocephalus rubinus', habitat: 'Urban' },
   { id: '2', common_name: 'Huerequeque', scientific_name: 'Burhinus superciliaris', habitat: 'Coastal' }
 ]);
