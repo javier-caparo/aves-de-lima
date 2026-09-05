@@ -1,7 +1,7 @@
 # Project Constitution — Aves de Lima
 
-**Version:** 1.1.0
-**Ratified:** 2026-09-04 (v1.1.0 amended 2026-09-04 from v1.0.0)
+**Version:** 1.2.0
+**Ratified:** 2026-09-04 (v1.1.0 amended 2026-09-04 from v1.0.0; v1.2.0 amended via change `add-dark-mode`)
 **Derived from:** `final proposal.md` (Architecture & System Definition) and codebase exploration (2026-09-04)
 
 ---
@@ -74,22 +74,27 @@ aves-de-lima/
 
 ## Article IV — Design System
 
-The proposal §4 palette is binding. Tokens are registered in the Tailwind v4 theme (`app/globals.css`, `@theme` block) and used by name.
+The proposal §4 palette is binding for the light theme. A complete dark set is also binding: every semantic token above MUST have both a light and a dark value (registered in the Tailwind v4 theme, `app/globals.css`, `@theme` block) and user-facing surfaces MUST render correctly in both.
 
-> **v1.1.0 amendment (2026-09-04):** Token names renamed from the v1.0.0 usage-shaped names to unambiguous semantic names, because a single `--color-primary` cannot serve both `bg-primary` (#FFFFFF) and `text-primary` (#111827). `--color-danger-light` (#FCA5A5) added as a new token for the retry-button hover.
+> **v1.1.0 amendment (2026-09-04):** Token names renamed from the v1.0.0 usage-shaped names to unambiguous semantic names, because a single `--color-primary` cannot serve both `bg-primary` (#FFFFFF) and `text-primary` (#111827).
 
-| Tailwind token | Value | Usage |
-|---|---|---|
-| `surface` | `#FFFFFF` | Main background (`bg-surface`) — was `bg-primary` |
-| `canvas` | `#F9FAFB` | Secondary background / app canvas (`bg-canvas`) |
-| `foreground` | `#111827` | Primary text (`text-foreground`) — was `text-primary` |
-| `muted` | `#6B7280` | Secondary text (`text-muted`) — was `text-secondary` |
-| `brand` | `#059669` | Primary buttons, active states, links (`bg-brand`/`text-brand`) — was `accent` |
-| `brand-strong` | `#047857` | Hover on accent elements — was `accent-hover` |
-| `danger` | `#EF4444` | Error states — was `error` |
-| `danger-light` | `#FCA5A5` | Hover on danger buttons (added v1.1.0) |
-| `success` | `#10B981` | Success states |
-| `warning` | `#F59E0B` | Warning states |
+> **v1.2.0 amendment (2026-09-04, change `add-dark-mode`):** From "light palette binding" to "semantic tokens binding — light set required, dark set defined for every semantic token". Switching happens through `data-theme="dark"` on `<html>`; token base values move to CSS variables resolved by `@theme inline`. Danger splits into three purpose tokens because one value cannot satisfy both white-text-on-red (buttons) and red-text-on-dark (banner): `danger` (action background, white text ≥3:1), `danger-text` (red text over tinted surfaces, ≥4.5:1), `danger-hover` (button hover). `danger-light` is removed. Known pre-existing deviation disclosed: white 14px text on `brand` measures 3.77:1 — meets WCAG 1.4.11 (3:1) but not 1.4.3 for body-size text; carried over unchanged from the original §4.1 design in both themes.
+
+| Tailwind token | Light value | Dark value | Usage |
+|---|---|---|---|
+| `surface` | `#FFFFFF` | `#111827` | Main background (`bg-surface`) — was `bg-primary` (v1.1.0) |
+| `canvas` | `#F9FAFB` | `#0B0F19` | Secondary background / app canvas (`bg-canvas`) |
+| `foreground` | `#111827` | `#F9FAFB` | Primary text (`text-foreground`) — was `text-primary` (v1.1.0) |
+| `muted` | `#6B7280` | `#9CA3AF` | Secondary text (`text-muted`) — was `text-secondary` (v1.1.0) |
+| `brand` | `#059669` | `#059669` | Primary buttons, active states, links (`bg-brand`/`text-brand`) — was `accent` (v1.1.0) |
+| `brand-strong` | `#047857` | `#0AA173` | Hover on accent elements — was `accent-hover` (v1.1.0) |
+| `danger` | `#DC2626` | `#E1313D` | Solid action background with white text (retry button) (v1.2.0) |
+| `danger-text` | `#B91C1C` | `#F87171` | Red text over tinted surfaces (error banner) (v1.2.0) |
+| `danger-hover` | `#B91C1C` | `#C41F1F` | Hover on red action buttons (v1.2.0) |
+| `success` | `#10B981` | `#34D399` | Success states |
+| `warning` | `#F59E0B` | `#FBBF24` | Warning states |
+
+Every value satisfies WCAG AA for its constrained use, verified by WCAG relative-luminance calculation during `add-dark-mode` (audit formula and results kept in the change notes). Neutral Tailwind shades (`gray-*`) are call-site-only details with explicit `dark:` twins — never token registry entries.
 
 **Layout rules (proposal §4.2).**
 
