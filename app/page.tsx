@@ -13,6 +13,7 @@ export default function MainGallery() {
     birds, 
     isLoading, 
     error, 
+    refetch: retry,
     searchTerm, 
     setSearchTerm, 
     activeFilter, 
@@ -34,8 +35,14 @@ export default function MainGallery() {
         />
 
         {error && (
-          <div className="mt-8 p-4 bg-[#EF4444]/10 text-[#EF4444] rounded-lg border border-[#EF4444]/20">
-            {error}
+          <div className="mt-8 p-4 bg-[#EF4444]/10 text-[#EF4444] rounded-lg border border-[#EF4444]/20 flex items-center justify-between gap-4">
+            <p>{error}</p>
+            <button
+              onClick={retry}
+              className="shrink-0 px-4 py-2 bg-[#EF4444] text-white rounded-md hover:bg-[#fca5a5] transition-colors"
+            >
+              Retry
+            </button>
           </div>
         )}
 

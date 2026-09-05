@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { Bird } from '../types';
 import birdsData from '../data/birds.json';
 
@@ -9,25 +9,42 @@ export const useBirds = () => {
   const [birds, setBirds] = useState<Bird[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [loadCount, setLoadCount] = useState<number>(0);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [activeFilter, setActiveFilter] = useState<string>('All');
 
   useEffect(() => {
+    let ignore = false;
+
     const fetchBirds = async () => {
       try {
-        setIsLoading(true);
         // Simulating an async network request for future API readiness
         await new Promise((resolve) => setTimeout(resolve, 500));
-        setBirds(birdsData as Bird[]);
-        setError(null);
+        if (!ignore) {
+          setBirds(birdsData as Bird[]);
+          setError(null);
+        }
       } catch (err) {
-        setError('Failed to load bird data. Please try again.');
+        if (!ignore) {
+          setError('Failed to load bird data. Please try again.');
+        }
       } finally {
-        setIsLoading(false);
+        if (!ignore) {
+          setIsLoading(false);
+        }
       }
     };
 
-    fetchBirds();
+    void fetchBirds();
+
+    return () => {
+      ignore = true;
+    };
+  }, [loadCount]);
+
+  const retry = useCallback(() => {
+    setIsLoading(true);
+    setLoadCount((current) => current + 1);
   }, []);
 
   const filteredBirds = useMemo(() => {
@@ -47,6 +64,7 @@ export const useBirds = () => {
     birds: filteredBirds,
     isLoading,
     error,
+    refetch: retry,
     searchTerm,
     setSearchTerm,
     activeFilter,

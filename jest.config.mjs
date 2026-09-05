@@ -14,6 +14,8 @@ const createJestConfig = nextJest({
 /** @type {import('jest').Config} */
 const config = {
   testEnvironment: 'jsdom',
+  // Unit tests only; Playwright E2E specs run via `npm run test:e2e`.
+  testMatch: ['**/*.test.ts?(x)'],
   // Load testing-library custom DOM matchers before each test.
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 };

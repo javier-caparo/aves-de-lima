@@ -37,4 +37,22 @@ describe('useBirds Hook', () => {
     expect(result.current.birds).toHaveLength(1);
     expect(result.current.birds[0].id).toBe('1');
   });
+
+  it('should reload data when refetch is called', async () => {
+    // Act
+    const { result } = renderHook(() => useBirds());
+
+    await waitFor(() => expect(result.current.isLoading).toBe(false));
+
+    await act(async () => {
+      result.current.refetch();
+    });
+
+    expect(result.current.isLoading).toBe(true);
+
+    // Assert
+    await waitFor(() => expect(result.current.isLoading).toBe(false));
+    expect(result.current.birds).toHaveLength(2);
+    expect(result.current.error).toBeNull();
+  });
 });
