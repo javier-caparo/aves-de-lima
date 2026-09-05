@@ -212,7 +212,7 @@ The proposal §4 palette is binding. Tokens must be registered in the Tailwind t
 | §9: `tailwind.config.ts` with validated tokens | Tailwind v4 uses PostCSS + CSS-based config; tokens not yet registered | **Gap** — Article IV/III.5 require token registration |
 | ~~§9: `jest.config.js` + test scripts~~ | ✅ Fixed 2026-09-04 — `jest.config.mjs` + `jest.setup.js` created (ESM filename per lint config), `test` script added, `jest-environment-jsdom@30` + `@types/jest@30` installed, broken mock path in `useBirds.test.ts` corrected | **Closed** |
 | ~~§9: `playwright.config.ts`~~ | ✅ Fixed 2026-09-04 — config + `e2e/gallery.spec.ts` covering the §6.2 flow via **6 passing E2E tests** against a production build; uses system Chrome (`channel: 'chrome'`) as download-restricted environment deviation | **Closed** |
-| §8: Error state with retry button | Error banner exists; no retry action | **Gap** — required by Article IV |
+| ~~§8: Error state with retry button~~ | ✅ Fixed 2026-09-04 — `Retry` action wired via `useBirds().refetch` (load-generation rerun, react-fetch-pattern compliant); unit test covers reload mechanics. Error branch itself remains unreachable by runtime (static data cannot fail mid-app); exercised via tests only | **Closed** |
 | §7: `habitat: string` | Matches implementation; multi-habitat species conflict anticipated | Tracked — Article V.2 |
 | ~~Filename `useBIrds.test.ts` (typo)~~ | ✅ Fixed 2026-09-04 — renamed to `useBirds.test.ts` | **Closed** |
 
