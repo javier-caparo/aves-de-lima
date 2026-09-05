@@ -36,7 +36,7 @@ export default function SearchFilterBar({
           placeholder="Search birds..."
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#059669] focus:border-transparent"
+          className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent"
         />
       </div>
 
@@ -48,8 +48,8 @@ export default function SearchFilterBar({
             className={cn(
               "px-4 py-1.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap",
               activeFilter === filter 
-                ? "bg-[#059669] text-white" 
-                : "bg-white border border-gray-200 text-[#6B7280] hover:bg-gray-50"
+                ? "bg-brand text-white" 
+                : "bg-white border border-gray-200 text-muted hover:bg-gray-50"
             )}
           >
             {filter}

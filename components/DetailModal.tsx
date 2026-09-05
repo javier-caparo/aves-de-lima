@@ -45,19 +45,19 @@ export default function DetailModal({ bird, onClose }: DetailModalProps) {
 
         <div className="p-6 sm:p-8">
           <div className="flex flex-col gap-1 mb-6">
-            <h2 className="text-3xl font-bold text-[#111827]">{bird.common_name}</h2>
-            <p className="italic text-lg text-[#6B7280]">{bird.scientific_name}</p>
+            <h2 className="text-3xl font-bold text-foreground">{bird.common_name}</h2>
+            <p className="italic text-lg text-muted">{bird.scientific_name}</p>
           </div>
           
           <div className="mb-6">
-             <span className="inline-block px-3 py-1 bg-[#059669]/10 text-[#059669] text-sm font-medium rounded-md">
+             <span className="inline-block px-3 py-1 bg-brand/10 text-brand text-sm font-medium rounded-md">
               Habitat: {bird.habitat}
             </span>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-[#111827] uppercase tracking-wider mb-2">Description</h3>
-            <p className="text-base text-[#6B7280] leading-relaxed">
+            <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-2">Description</h3>
+            <p className="text-base text-muted leading-relaxed">
               {bird.description}
             </p>
           </div>

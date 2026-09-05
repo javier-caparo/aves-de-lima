@@ -24,7 +24,7 @@ export const useBirds = () => {
           setBirds(birdsData as Bird[]);
           setError(null);
         }
-      } catch (err) {
+      } catch {
         if (!ignore) {
           setError('Failed to load bird data. Please try again.');
         }

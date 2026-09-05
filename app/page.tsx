@@ -23,7 +23,7 @@ export default function MainGallery() {
   const [selectedBird, setSelectedBird] = useState<Bird | null>(null);
 
   return (
-    <main className="min-h-screen bg-[#F9FAFB]">
+    <main className="min-h-screen bg-canvas">
       <GlobalHeader />
       
       <div className="max-w-7xl mx-auto px-6 py-8">
@@ -35,11 +35,11 @@ export default function MainGallery() {
         />
 
         {error && (
-          <div className="mt-8 p-4 bg-[#EF4444]/10 text-[#EF4444] rounded-lg border border-[#EF4444]/20 flex items-center justify-between gap-4">
+          <div className="mt-8 p-4 bg-danger/10 text-danger rounded-lg border border-danger/20 flex items-center justify-between gap-4">
             <p>{error}</p>
             <button
               onClick={retry}
-              className="shrink-0 px-4 py-2 bg-[#EF4444] text-white rounded-md hover:bg-[#fca5a5] transition-colors"
+              className="shrink-0 px-4 py-2 bg-danger text-white rounded-md hover:bg-danger-light transition-colors"
             >
               Retry
             </button>
@@ -54,10 +54,10 @@ export default function MainGallery() {
           </div>
         ) : birds.length === 0 ? (
           <div className="mt-24 flex flex-col items-center justify-center text-center">
-            <h3 className="text-xl font-medium text-[#111827]">No birds found matching your criteria</h3>
+            <h3 className="text-xl font-medium text-foreground">No birds found matching your criteria</h3>
             <button 
               onClick={() => { setSearchTerm(''); setActiveFilter('All'); }}
-              className="mt-4 px-6 py-2 bg-[#059669] text-white rounded-md hover:bg-[#047857] transition-colors"
+              className="mt-4 px-6 py-2 bg-brand text-white rounded-md hover:bg-brand-strong transition-colors"
             >
               Clear Filters
             </button>

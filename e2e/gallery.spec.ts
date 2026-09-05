@@ -32,6 +32,13 @@ test.describe('Main Gallery user flow (proposal §6.2)', () => {
     await expect(page.getByRole('heading', { name: 'Turtupilín' })).toBeHidden();
   });
 
+  test('active filter chip renders with the brand design token', async ({ page }) => {
+    const chip = page.getByRole('button', { name: 'Coastal' });
+    await chip.click();
+    // #059669 from the Article IV palette, emitted by the --color-brand token.
+    await expect(chip).toHaveCSS('background-color', 'rgb(5, 150, 105)');
+  });
+
   test('empty results show the empty state and Clear Filters restores the grid', async ({ page }) => {
     await page.getByPlaceholder('Search birds...').fill('xyz-not-a-bird');
     await expect(
