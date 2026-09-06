@@ -13,7 +13,7 @@ export default function BirdCard({ bird, onClick }: BirdCardProps) {
       onClick={onClick}
       className="group cursor-pointer bg-surface rounded-lg shadow-[0px_4px_12px_rgba(0,0,0,0.05)] dark:shadow-[0px_4px_12px_rgba(0,0,0,0.35)] border border-gray-100 dark:border-gray-800 overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+      <div className="relative aspect-[2/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
         <Image 
           src={bird.image_url} 
           alt={bird.common_name}

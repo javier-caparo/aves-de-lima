@@ -37,9 +37,11 @@ Nature-inspired, clean, and modern. Ample whitespace to highlight photography.
 * **Search Bar:** Input field with left-aligned search icon, placeholder text "Search birds...". Full-width or prominent top-bar placement.
 * **Filter Chips:** Pill shape toggles for categories (e.g., "All", "Coastal", "Urban", "Andean"). 
   * *States:* Default (gray outline), Hover (gray background), Active (green background `#059669`, white text).
-* **Bird Card:** Container with image top (aspect ratio 4:3 or 1:1), text bottom (Common name H2, scientific name italicized, small habitat tag).
+* **Bird Card:** Container with image top (aspect ratio 2:3 portrait — see amendment below), text bottom (Common name H2, scientific name italicized, small habitat tag).
   * *Interactions:* Hover state elevates card slightly (shadow increases) and image scales up by 2% (`hover:scale-[1.02]`).
 * **Detail Modal:** Overlay container with backdrop blur (`rgba(0,0,0,0.4)`). Contains a Close (X) button top-right, large hero image, typography hierarchy (Common Name, Scientific Name), metadata tags, and description.
+
+> **Amendment (2026-09-04, change `fix-image-cropping`):** Card image aspect ratio changed from "4:3 or 1:1" to **2:3 portrait** to match the actual asset library (photos are 200×300). The detail modal displays photographs at their natural ratio (no fixed hero crop). Source: decisions D1/D2 in `openspec/changes/fix-image-cropping/design.md`.
 
 ## 6. Site Map & User Flow
 ### 6.1. Site Map

@@ -34,15 +34,13 @@ export default function DetailModal({ bird, onClose }: DetailModalProps) {
           </svg>
         </button>
 
-        <div className="relative w-full aspect-video sm:aspect-[21/9] bg-gray-100 dark:bg-gray-800">
-          <Image 
-            src={bird.image_url} 
-            alt={bird.common_name}
-            fill
-            sizes="(max-width: 640px) 100vw, 672px"
-            className="object-cover"
-          />
-        </div>
+        <Image 
+          src={bird.image_url} 
+          alt={bird.common_name}
+          width={200}
+          height={300}
+          className="w-full h-auto object-cover"
+        />
 
         <div className="p-6 sm:p-8">
           <div className="flex flex-col gap-1 mb-6">
