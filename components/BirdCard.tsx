@@ -18,6 +18,7 @@ export default function BirdCard({ bird, onClick }: BirdCardProps) {
           src={bird.image_url} 
           alt={bird.common_name}
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
         />
       </div>

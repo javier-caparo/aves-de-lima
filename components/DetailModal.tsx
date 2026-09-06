@@ -39,6 +39,7 @@ export default function DetailModal({ bird, onClose }: DetailModalProps) {
             src={bird.image_url} 
             alt={bird.common_name}
             fill
+            sizes="(max-width: 640px) 100vw, 672px"
             className="object-cover"
           />
         </div>
